@@ -1,15 +1,19 @@
 import ThemeToggle from '@/client/component/darkmode/ThemeToggle';
 import ButtonMobilbNav from '@/client/component/mobile/ButtonNav';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavBar from './NavBar';
 import NavBarMobile from './NavBarMobile';
 import { useMediaQuery } from 'react-responsive';
 import device from '@/device';
 
 const NavMenu = () => {
-  const isMobile = useMediaQuery({ query: device.medium });
+  const [isMobile, setIsMobile ] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
+  const media = useMediaQuery({ query: device.medium });
+  useEffect(() => {
+    setIsMobile(media);
+  }, [media])
   return (
     <nav className="bg-purple-900 sticky top-0 z-50">
       
