@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-     "./src/**/*.{js,ts,jsx,tsx}",
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './src/**/*.{js,ts,jsx,tsx}',
   ],
   darkMode: 'class',
   theme: {
@@ -20,12 +20,12 @@ module.exports = {
           200: '#ebedef',
           100: '#f2f3f5',
         },
-        purple:{
+        purple: {
           900: '#191825',
           300: '#865DFF',
           200: '#E384FF',
-          100: '#FFA3FD'
-        }
+          100: '#FFA3FD',
+        },
       },
       spacing: {
         88: '22rem',

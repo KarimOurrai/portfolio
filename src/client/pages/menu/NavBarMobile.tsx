@@ -1,8 +1,8 @@
-import Link from "next/link";
-import { Transition } from "@headlessui/react";
+import Link from 'next/link'
+import { Transition } from '@headlessui/react'
 
 interface NavBarMobileProps {
-  isOpen: boolean;
+  isOpen: boolean
 }
 
 export default function NavBarMobile({ isOpen }: NavBarMobileProps) {
@@ -30,11 +30,11 @@ export default function NavBarMobile({ isOpen }: NavBarMobileProps) {
           </Link>
           <Link href="/contact" passHref legacyBehavior>
             <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-center font-medium">
-                Contact
+              Contact
             </a>
           </Link>
-         </div>
         </div>
-        </Transition>
-        );
-    }
+      </div>
+    </Transition>
+  )
+}
