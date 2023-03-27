@@ -28,9 +28,9 @@ const ThemeToggle = () => {
         }
       >
         {isDark ? (
-          <IoMdMoon size={24} className="text-black" />
+          <IoMdMoon size={24} className="text-black h-full" />
         ) : (
-          <IoMdSunny size={24} className="text-black" />
+          <IoMdSunny size={24} className="text-black h-full" />
         )}
       </div>
     </div>
