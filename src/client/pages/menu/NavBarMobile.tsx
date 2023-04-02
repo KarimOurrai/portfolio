@@ -2,10 +2,16 @@ import Link from 'next/link'
 import { Transition } from '@headlessui/react'
 
 interface NavBarMobileProps {
+  data : NavigationData
   isOpen: boolean
 }
+interface NavigationData{
+  routes: Array<string>;
+  button: string
+}
 
-export default function NavBarMobile({ isOpen }: NavBarMobileProps) {
+export default function NavBarMobile({data, isOpen }: NavBarMobileProps) {
+  const {routes, button} = data;
   return (
     <Transition
       show={isOpen}
@@ -18,21 +24,20 @@ export default function NavBarMobile({ isOpen }: NavBarMobileProps) {
     >
       <div className="sm:hidden">
         <div className="px-2 pt-2 pb-3 space-y-1">
-          <Link href="/" passHref legacyBehavior>
+        {routes.map((route,index)=>(
+          <Link key={index} passHref href={
+            route.toLowerCase() === "home"
+              ? "/"
+              : route.toLowerCase() === "blog"
+                ? "/blog"
+                : `/#${route.toLowerCase()}`
+            } legacyBehavior>
             <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-center font-medium">
-              Home
+            {route}
             </a>
           </Link>
-          <Link href="/about" passHref legacyBehavior>
-            <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-center font-medium">
-              About
-            </a>
-          </Link>
-          <Link href="/contact" passHref legacyBehavior>
-            <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-center font-medium">
-              Contact
-            </a>
-          </Link>
+            ))
+          }
         </div>
       </div>
     </Transition>

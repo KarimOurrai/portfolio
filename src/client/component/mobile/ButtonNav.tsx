@@ -52,4 +52,4 @@ const ButtonMobilbNav: FC<any> = ({ isMenuOpen, onClick }) => {
   )
 }
 
-export default ButtonMobilbNav
+export default ButtonMobilbNav;

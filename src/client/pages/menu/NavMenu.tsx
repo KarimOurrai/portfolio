@@ -1,12 +1,12 @@
-import ThemeToggle from '@/client/component/darkmode/ThemeToggle'
+import ThemeToggle from '@/client/component/toggles/ThemeToggle'
 import ButtonMobilbNav from '@/client/component/mobile/ButtonNav'
-import { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import NavBar from './NavBar'
 import NavBarMobile from './NavBarMobile'
 import { useMediaQuery } from 'react-responsive'
 import device from '@/device'
 
-const NavMenu = () => {
+const NavMenu : FC<any>= ({ data }) => {
   const [isMobile, setIsMobile] = useState(false)
   const [mobileNav, setMobileNav] = useState(false)
   const media = useMediaQuery({ query: device.small })
@@ -27,7 +27,7 @@ const NavMenu = () => {
             }
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-            {!isMobile && <NavBar />}
+            {!isMobile && <NavBar data = {data}/>}
           </div>
 
           <div className="inset-0 justify-self-auto">
@@ -36,7 +36,7 @@ const NavMenu = () => {
         </div>
         {/* Mobile menu, toggle classes based on menu state */}
         <div className="sm:hidden">
-          {isMobile && <NavBarMobile isOpen={mobileNav} />}
+          {isMobile && <NavBarMobile data={data} isOpen={mobileNav} />}
         </div>
       </div>
     </nav>
